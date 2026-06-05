@@ -1,0 +1,337 @@
+CREATE TABLE CATEGORY (
+    CATEGORY_ID VARCHAR(20) PRIMARY KEY,
+    CATEGORY_NAME VARCHAR(100) NOT NULL
+);
+
+INSERT INTO CATEGORY (CATEGORY_ID, CATEGORY_NAME) VALUES
+('C001', 'Electronics'),
+('C002', 'Clothing'),
+('C003', 'Books'),
+('C004', 'Furniture'),
+('C005', 'Sports'),
+('C006', 'Toys'),
+('C007', 'Groceries'),
+('C008', 'Beauty'),
+('C009', 'Automotive'),
+('C010', 'Stationery');
+
+CREATE TABLE WARRANTY (
+    CLAIM_ID VARCHAR(10) PRIMARY KEY,
+    CLAIM_DATE DATE NOT NULL,
+    SALE_ID VARCHAR(10) NOT NULL,
+    REPAIR_STATUS VARCHAR(30)
+);
+
+INSERT INTO WARRANTY (CLAIM_ID, CLAIM_DATE, SALE_ID, REPAIR_STATUS) VALUES
+('CL001','2026-01-01','S001','Completed'),
+('CL002','2026-01-02','S002','Pending'),
+('CL003','2026-01-03','S003','In Progress'),
+('CL004','2026-01-04','S004','Rejected'),
+('CL005','2026-01-05','S005','Completed'),
+('CL006','2026-01-06','S006','Pending'),
+('CL007','2026-01-07','S007','In Progress'),
+('CL008','2026-01-08','S008','Rejected'),
+('CL009','2026-01-09','S009','Completed'),
+('CL010','2026-01-10','S010','Pending'),
+('CL011','2026-01-11','S011','In Progress'),
+('CL012','2026-01-12','S012','Rejected'),
+('CL013','2026-01-13','S013','Completed'),
+('CL014','2026-01-14','S014','Pending'),
+('CL015','2026-01-15','S015','In Progress'),
+('CL016','2026-01-16','S016','Rejected'),
+('CL017','2026-01-17','S017','Completed'),
+('CL018','2026-01-18','S018','Pending'),
+('CL019','2026-01-19','S019','In Progress'),
+('CL020','2026-01-20','S020','Rejected'),
+('CL021','2026-01-21','S021','Completed'),
+('CL022','2026-01-22','S022','Pending'),
+('CL023','2026-01-23','S023','In Progress'),
+('CL024','2026-01-24','S024','Rejected'),
+('CL025','2026-01-25','S025','Completed'),
+('CL026','2026-01-26','S026','Pending'),
+('CL027','2026-01-27','S027','In Progress'),
+('CL028','2026-01-28','S028','Rejected'),
+('CL029','2026-01-29','S029','Completed'),
+('CL030','2026-01-30','S030','Pending'),
+('CL031','2026-01-31','S031','In Progress'),
+('CL032','2026-02-01','S032','Rejected'),
+('CL033','2026-02-02','S033','Completed'),
+('CL034','2026-02-03','S034','Pending'),
+('CL035','2026-02-04','S035','In Progress'),
+('CL036','2026-02-05','S036','Rejected'),
+('CL037','2026-02-06','S037','Completed'),
+('CL038','2026-02-07','S038','Pending'),
+('CL039','2026-02-08','S039','In Progress'),
+('CL040','2026-02-09','S040','Rejected'),
+('CL041','2026-02-10','S041','Completed'),
+('CL042','2026-02-11','S042','Pending'),
+('CL043','2026-02-12','S043','In Progress'),
+('CL044','2026-02-13','S044','Rejected'),
+('CL045','2026-02-14','S045','Completed'),
+('CL046','2026-02-15','S046','Pending'),
+('CL047','2026-02-16','S047','In Progress'),
+('CL048','2026-02-17','S048','Rejected'),
+('CL049','2026-02-18','S049','Completed'),
+('CL050','2026-02-19','S050','Pending'),
+('CL051','2026-02-20','S051','In Progress'),
+('CL052','2026-02-21','S052','Rejected'),
+('CL053','2026-02-22','S053','Completed'),
+('CL054','2026-02-23','S054','Pending'),
+('CL055','2026-02-24','S055','In Progress'),
+('CL056','2026-02-25','S056','Rejected'),
+('CL057','2026-02-26','S057','Completed'),
+('CL058','2026-02-27','S058','Pending'),
+('CL059','2026-02-28','S059','In Progress'),
+('CL060','2026-03-01','S060','Rejected'),
+('CL061','2026-03-02','S061','Completed'),
+('CL062','2026-03-03','S062','Pending'),
+('CL063','2026-03-04','S063','In Progress'),
+('CL064','2026-03-05','S064','Rejected'),
+('CL065','2026-03-06','S065','Completed'),
+('CL066','2026-03-07','S066','Pending'),
+('CL067','2026-03-08','S067','In Progress'),
+('CL068','2026-03-09','S068','Rejected'),
+('CL069','2026-03-10','S069','Completed'),
+('CL070','2026-03-11','S070','Pending'),
+('CL071','2026-03-12','S071','In Progress'),
+('CL072','2026-03-13','S072','Rejected'),
+('CL073','2026-03-14','S073','Completed'),
+('CL074','2026-03-15','S074','Pending'),
+('CL075','2026-03-16','S075','In Progress'),
+('CL076','2026-03-17','S076','Rejected'),
+('CL077','2026-03-18','S077','Completed'),
+('CL078','2026-03-19','S078','Pending'),
+('CL079','2026-03-20','S079','In Progress'),
+('CL080','2026-03-21','S080','Rejected'),
+('CL081','2026-03-22','S081','Completed'),
+('CL082','2026-03-23','S082','Pending'),
+('CL083','2026-03-24','S083','In Progress'),
+('CL084','2026-03-25','S084','Rejected'),
+('CL085','2026-03-26','S085','Completed'),
+('CL086','2026-03-27','S086','Pending'),
+('CL087','2026-03-28','S087','In Progress'),
+('CL088','2026-03-29','S088','Rejected'),
+('CL089','2026-03-30','S089','Completed'),
+('CL090','2026-03-31','S090','Pending'),
+('CL091','2026-04-01','S091','In Progress'),
+('CL092','2026-04-02','S092','Rejected'),
+('CL093','2026-04-03','S093','Completed'),
+('CL094','2026-04-04','S094','Pending'),
+('CL095','2026-04-05','S095','In Progress'),
+('CL096','2026-04-06','S096','Rejected'),
+('CL097','2026-04-07','S097','Completed'),
+('CL098','2026-04-08','S098','Pending'),
+('CL099','2026-04-09','S099','In Progress'),
+('CL100','2026-04-10','S100','Rejected');
+
+CREATE TABLE PRODUCT (
+    PRODUCT_ID VARCHAR(10) PRIMARY KEY,
+    PRODUCT_NAME VARCHAR(100) NOT NULL,
+    CATEGORY_ID VARCHAR(20),
+    PRICE DECIMAL(10,2),
+    WARRANTY_PERIOD INT,
+    FOREIGN KEY (CATEGORY_ID) REFERENCES CATEGORY(CATEGORY_ID)
+);
+
+INSERT INTO PRODUCT VALUES
+('P001','Laptop','C001',55000,24),
+('P002','Mobile','C001',20000,12),
+('P003','T-Shirt','C002',800,0),
+('P004','Book','C003',500,0),
+('P005','Chair','C004',2500,12),
+('P006','Football','C005',1200,6),
+('P007','Toy Car','C006',600,3),
+('P008','Rice Bag','C007',1200,0),
+('P009','Face Wash','C008',250,0),
+('P010','Car Battery','C009',4500,24);
+
+CREATE TABLE STORES (
+    STORE_ID VARCHAR(10) PRIMARY KEY,
+    STORE_NAME VARCHAR(100) NOT NULL,
+    CITY VARCHAR(50),
+    PHONE VARCHAR(15)
+);
+INSERT INTO STORES VALUES
+('ST001','Tech World','Jamshedpur','9876543210'),
+('ST002','Fashion Hub','Ranchi','9876543211'),
+('ST003','Book Palace','Patna','9876543212'),
+('ST004','Furniture Zone','Dhanbad','9876543213'),
+('ST005','Sports Point','Bokaro','9876543214');
+
+CREATE TABLE SALES (
+    SALE_ID VARCHAR(10) PRIMARY KEY,
+    PRODUCT_ID VARCHAR(10),
+    STORE_ID VARCHAR(10),
+    SALE_DATE DATE,
+    QUANTITY INT,
+    TOTAL_AMOUNT DECIMAL(10,2),
+    FOREIGN KEY (PRODUCT_ID) REFERENCES PRODUCT(PRODUCT_ID),
+    FOREIGN KEY (STORE_ID) REFERENCES STORES(STORE_ID)
+);
+INSERT INTO SALES VALUES
+('S001','P001','ST001','2026-01-01',1,55000),
+('S002','P002','ST001','2026-01-02',2,40000),
+('S003','P003','ST002','2026-01-03',3,2400),
+('S004','P004','ST003','2026-01-04',5,2500),
+('S005','P005','ST004','2026-01-05',2,5000),
+('S006','P006','ST005','2026-01-06',4,4800),
+('S007','P007','ST005','2026-01-07',6,3600),
+('S008','P008','ST001','2026-01-08',3,3600),
+('S009','P009','ST002','2026-01-09',10,2500),
+('S010','P010','ST004','2026-01-10',1,4500),
+('S011','P001','ST001','2026-01-11',1,55000),
+('S012','P002','ST002','2026-01-12',1,20000),
+('S013','P003','ST003','2026-01-13',4,3200),
+('S014','P004','ST004','2026-01-14',2,1000),
+('S015','P005','ST005','2026-01-15',1,2500),
+('S016','P006','ST001','2026-01-16',5,6000),
+('S017','P007','ST002','2026-01-17',3,1800),
+('S018','P008','ST003','2026-01-18',2,2400),
+('S019','P009','ST004','2026-01-19',8,2000),
+('S020','P010','ST005','2026-01-20',2,9000),
+('S021','P001','ST002','2026-01-21',2,110000),
+('S022','P002','ST003','2026-01-22',3,60000),
+('S023','P003','ST004','2026-01-23',5,4000),
+('S024','P004','ST005','2026-01-24',6,3000),
+('S025','P005','ST001','2026-01-25',2,5000),
+('S026','P006','ST002','2026-01-26',3,3600),
+('S027','P007','ST003','2026-01-27',4,2400),
+('S028','P008','ST004','2026-01-28',2,2400),
+('S029','P009','ST005','2026-01-29',12,3000),
+('S030','P010','ST001','2026-01-30',1,4500),
+('S031','P001','ST003','2026-01-31',1,55000),
+('S032','P002','ST004','2026-02-01',2,40000),
+('S033','P003','ST005','2026-02-02',2,1600),
+('S034','P004','ST001','2026-02-03',7,3500),
+('S035','P005','ST002','2026-02-04',3,7500),
+('S036','P006','ST003','2026-02-05',4,4800),
+('S037','P007','ST004','2026-02-06',5,3000),
+('S038','P008','ST005','2026-02-07',1,1200),
+('S039','P009','ST001','2026-02-08',6,1500),
+('S040','P010','ST002','2026-02-09',2,9000),
+('S041','P001','ST004','2026-02-10',1,55000),
+('S042','P002','ST005','2026-02-11',2,40000),
+('S043','P003','ST001','2026-02-12',3,2400),
+('S044','P004','ST002','2026-02-13',4,2000),
+('S045','P005','ST003','2026-02-14',2,5000),
+('S046','P006','ST004','2026-02-15',6,7200),
+('S047','P007','ST005','2026-02-16',2,1200),
+('S048','P008','ST001','2026-02-17',4,4800),
+('S049','P009','ST002','2026-02-18',10,2500),
+('S050','P010','ST003','2026-02-19',1,4500);
+
+SELECT * FROM SALES;
+SELECT * FROM PRODUCT;
+select * FROM STORES;
+SELECT * FROM WARRANTY;
+SELECT * FROM CATEGORY;
+
+-- PROJECT 
+-- QUESTION 1
+SELECT
+city,
+COUNT(store_id) AS total_stores
+FROM stores
+GROUP BY city
+ORDER BY total_stores DESC;
+
+-- question 2
+SELECT
+st.store_name,
+SUM(s.quantity) AS total_units_sold
+FROM sales s
+INNER JOIN stores st
+ON s.store_id = st.store_id
+GROUP BY st.store_name
+ORDER BY total_units_sold DESC;
+
+-- question 3
+SELECT
+COUNT(sale_id) AS total_sales
+FROM sales
+WHERE sale_date BETWEEN '2026-01-01' AND '2026-01-06';
+
+
+-- question 4
+SELECT
+    COUNT(*) AS stores_with_no_claims
+FROM stores
+WHERE store_id NOT IN (
+    SELECT DISTINCT s.store_id
+    FROM warranty w
+    INNER JOIN sales s
+        ON w.sale_id = s.sale_id
+    WHERE s.store_id IS NOT NULL
+);
+
+-- question 5
+SELECT
+ROUND(
+COUNT(CASE WHEN repair_status = 'completed'
+THEN 1 END) * 100.0
+/ COUNT(*),
+2
+) AS void_percentage
+FROM warranty;
+
+-- question 6
+SELECT
+    st.store_name,
+    SUM(s.quantity) AS total_units
+FROM sales s
+INNER JOIN stores st
+    ON s.store_id = st.store_id
+WHERE s.sale_date >= CURDATE() - INTERVAL 1 YEAR
+GROUP BY st.store_name
+ORDER BY total_units DESC
+LIMIT 1;
+
+-- question 7
+SELECT
+    COUNT(DISTINCT product_id) AS unique_skus_sold
+FROM sales
+WHERE sale_date >= CURDATE() - INTERVAL 1 YEAR; 
+
+-- question 8
+
+SELECT
+    c.category_name,
+    ROUND(AVG(p.price), 2) AS avg_price
+FROM product p
+INNER JOIN category c
+    ON p.category_id = c.category_id
+GROUP BY c.category_name
+ORDER BY avg_price DESC;
+
+-- question 9
+SELECT
+    COUNT(claim_id) AS total_claims_2026
+FROM warranty
+WHERE extract( YEAR from claim_date) = 2026;
+
+-- question 10
+WITH daily_sales AS (
+    SELECT
+        s.store_id,
+        st.store_name,
+        DAYNAME(s.sale_date) AS weekday,
+        SUM(s.quantity) AS total_units,
+        RANK() OVER (
+            PARTITION BY s.store_id
+            ORDER BY SUM(s.quantity) DESC
+        ) AS sales_rank
+    FROM sales s
+    INNER JOIN stores st
+        ON s.store_id = st.store_id
+    GROUP BY
+        s.store_id,
+        st.store_name,
+        DAYNAME(s.sale_date)
+)
+SELECT
+    store_name,
+    weekday AS best_selling_day,
+    total_units
+FROM daily_sales
+WHERE sales_rank = 1
+ORDER BY store_name;
