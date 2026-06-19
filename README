@@ -1,1 +1,97 @@
+# Retail Sales & Warranty Claims Analysis (SQL)
+
+A SQL-based analysis of a multi-store retail business, covering sales performance, store rankings, product pricing by category, and warranty claim patterns. Built entirely with raw SQL (DDL + DML + analytical queries), including window functions and CTEs.
+
+## Project Overview
+
+This project simulates a retail chain with 5 stores across Jharkhand and Bihar, selling 10 products across 10 categories. It uses SQL to answer 10 real business questions a retail operations or analytics team would actually ask, covering store performance, sales trends, product pricing, and warranty/service claim behavior.
+
+## Database Schema
+
+The database consists of 5 tables:
+
+| Table | Description |
+|-------|-------------|
+| `CATEGORY` | Product categories (Electronics, Clothing, Books, etc.) |
+| `PRODUCT` | Products with price, warranty period, and category link |
+| `STORES` | Store locations and contact details |
+| `SALES` | Individual sales transactions (product, store, quantity, amount) |
+| `WARRANTY` | Warranty claims linked to sales, with repair status |
+
+**Relationships:**
+- `PRODUCT.CATEGORY_ID` → `CATEGORY.CATEGORY_ID`
+- `SALES.PRODUCT_ID` → `PRODUCT.PRODUCT_ID`
+- `SALES.STORE_ID` → `STORES.STORE_ID`
+- `WARRANTY.SALE_ID` → `SALES.SALE_ID`
+
+## Raw Data
+
+Raw data is provided both as the SQL `INSERT` statements (in the `.sql` file) and as standalone CSV files for anyone who wants to load the data into a different tool (Excel, Python, Power BI, etc.) without running SQL:
+
+| File | Rows | Description |
+|------|------|--------------|
+| `category.csv` | 10 | Category ID and name |
+| `product.csv` | 10 | Product details, price, warranty period |
+| `stores.csv` | 5 | Store name, city, phone |
+| `sales.csv` | 50 | Sales transactions (Jan–Feb 2026) |
+| `warranty.csv` | 100 | Warranty claims (Jan–Apr 2026) |
+
+> **Data quality note:** The `WARRANTY` table contains 100 claims, but only the first 50 (`CL001`–`CL050`) reference `SALE_ID`s that actually exist in the `SALES` table (`S001`–`S050`). Claims `CL051`–`CL100` reference `SALE_ID`s (`S051`–`S100`) that are not present in `SALES`. This is intentional/inherited from the source data and is worth keeping in mind when interpreting any warranty-to-sales join — queries that `INNER JOIN` `WARRANTY` to `SALES` will silently exclude these 50 orphaned claims.
+
+## Business Questions Answered
+
+| # | Question |
+|---|----------|
+| Q1 | How many stores are located in each city? |
+| Q2 | What is the total number of units sold per store? |
+| Q3 | How many total sales occurred in the first week of January 2026? |
+| Q4 | How many stores have never had a warranty claim filed against their sales? |
+| Q5 | What percentage of warranty claims have a "Completed" repair status? |
+| Q6 | Which store sold the most units in the last year? |
+| Q7 | How many unique products (SKUs) were sold in the last year? |
+| Q8 | What is the average product price per category? |
+| Q9 | How many warranty claims were filed in 2026? |
+| Q10 | What is the best-selling day of the week for each store? |
+
+## Key SQL Techniques Used
+
+- **Joins:** `INNER JOIN` across Sales, Stores, Products, and Categories
+- **Aggregation:** `SUM`, `COUNT`, `AVG`, `ROUND`
+- **Conditional aggregation:** `COUNT(CASE WHEN ... THEN 1 END)` for percentage calculations
+- **Subqueries:** `NOT IN` with a correlated subquery to find stores with no warranty claims
+- **Date functions:** `CURDATE() - INTERVAL`, `EXTRACT(YEAR FROM ...)`, `DAYNAME()`
+- **Window functions:** `RANK() OVER (PARTITION BY ... ORDER BY ...)` to find each store's best-selling weekday
+- **CTEs:** `WITH daily_sales AS (...)` to structure the ranking logic in Q10
+
+## Sample Insight
+
+Question 10 is the most advanced query in the project. It uses a CTE combined with `RANK()` partitioned by store to identify each store's single best-selling day of the week, by total units sold, demonstrating how window functions can answer a "top-N per group" question that a plain `GROUP BY` cannot.
+
+## Tools Used
+
+- SQL (MySQL syntax — uses `CURDATE()`, `DAYNAME()`, `EXTRACT()`)
+
+## Repository Structure
+
+```
+sql-retail-project/
+├── README.md
+├── retail_sales_analysis.sql      # Full schema, data, and all 10 queries
+├── category.csv                   # Raw data: categories
+├── product.csv                    # Raw data: products
+├── stores.csv                     # Raw data: stores
+├── sales.csv                      # Raw data: sales transactions
+└── warranty.csv                   # Raw data: warranty claims
+```
+
+## How to Run
+
+1. Create a MySQL database and run `retail_sales_analysis.sql` — it will create all 5 tables, insert the raw data, and run all 10 analysis queries in order.
+2. Alternatively, load the individual CSV files into any tool of your choice (Excel, Power BI, pandas) if you only need the raw data without the schema or queries.
+
+## Author
+
+**Johit Kumar**
+- GitHub: [JOHITKUMAR](https://github.com/JOHITKUMAR)
+- LinkedIn: [johit-kumar](https://www.linkedin.com/in/johit-kumar-3bb662198/)
 
